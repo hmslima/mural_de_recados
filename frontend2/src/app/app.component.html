@@ -1,0 +1,48 @@
+<app-nav></app-nav>
+<br>
+
+<div class="container">
+
+  <div class="card">
+    <div class="card-header fw-bold fs-4">
+      Postar recado
+    </div>
+    <div class="card-body">
+      <form #recadosForm="ngForm" (ngSubmit)="postRecado(recadosForm.value)">
+
+        <label for="remetente" class="form-label">Remetente</label>
+        <input required type="text" id="remetente" ngModel class="form-control" name="remetente" placeholder="Seu nome">
+
+        <br>
+
+        <label for="textAreaRecado" class="form-label">Recado</label>
+        <textarea required id="textAreaRecado" class="form-control" ngModel name="texto"
+          placeholder="Escreva o recado aqui, seja gentil 🙂"></textarea>
+
+        <br>
+
+        <button type="submit" class="btn btn-success" [disabled]="recadosForm.form.invalid">Enviar</button>
+
+      </form>
+    </div>
+  </div>
+
+  <br>
+
+  <table class="table table-secondary table-striped">
+    <thead>
+      <tr class="table-dark">
+        <th style="width: 12rem;">Remetente</th>
+        <th>Recado</th>
+        <th style="width: 12rem;">Data de publicação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recado of osRecados">
+        <td>{{ recado.remetente }}</td>
+        <td>{{ recado.texto }}</td>
+        <td>{{ recado.data | date: 'd/M/yy, h:mm a' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
