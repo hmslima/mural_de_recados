@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import br.com.hmslima.backend.entity.Recado;
 
-//@CrossOrigin
+@CrossOrigin
 @RepositoryRestResource(path = "recados")
 public interface RecadosRepository extends JpaRepository<Recado, Integer> {
 

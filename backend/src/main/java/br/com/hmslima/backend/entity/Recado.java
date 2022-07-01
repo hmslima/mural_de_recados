@@ -21,6 +21,9 @@ public class Recado {
     @Column(name="id")
     private int id;
 
+    @Column(name="remetente")
+    private String remetente;
+
     @Column(name="texto")
     private String texto;
 
@@ -37,7 +40,8 @@ public class Recado {
 
     }
 
-    public Recado(String texto, Date data) {
+    public Recado(String remetente, String texto, Date data) {
+        this.remetente = remetente;
         this.texto = texto;
         this.data = data;
     }
@@ -48,6 +52,14 @@ public class Recado {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getRemetente() {
+        return remetente;
+    }
+
+    public void setRemetente(String remetente) {
+        this.remetente = remetente;
     }
 
     public String getTexto() {
